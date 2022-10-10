@@ -26,32 +26,32 @@ void PrintArray2(int[,] a)
         Console.WriteLine();
     }
 }
-void SortRows(int [,] a)
+void SortRows(int[,] a)
 {
-    for (int i=0; i<a.GetLength(0); i++)
+    for (int i = 0; i < a.GetLength(0); i++)
     {
-        for (int j=0; j<a.GetLength(1) - 1; j++)
+        for (int j = 0; j < a.GetLength(1) - 1; j++)
         {
-            if (a[i,j] < a[i, FindMax(a, i, j+1)])
+            if (a[i, j] < a[i, FindMax(a, i, j + 1)])
             {
-                int temp = a[i,j];
-                a[i,j] = a[i, FindMax(a, i, j+1)];
-                a[i, FindMax(a, i, j+1)] = temp;
+                int temp = a[i, j];
+                a[i, j] = a[i, FindMax(a, i, j + 1)];
+                a[i, FindMax(a, i, j + 1)] = temp;
             }
-        }    
+        }
     }
 }
-int FindMax (int [,]a, int k, int l)
+int FindMax(int[,] a, int k, int l)
 {
     int maxNum = l;
     int max = a[k, l];
-    for (int i = l+1; i< a.GetLength(1); i++)
+    for (int i = l + 1; i < a.GetLength(1); i++)
     {
         if (a[k, i] > max)
         {
-           maxNum = i; 
-           max = a[k, i];
-        } 
+            maxNum = i;
+            max = a[k, i];
+        }
     }
     return maxNum;
 }
