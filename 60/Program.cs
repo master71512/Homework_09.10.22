@@ -28,12 +28,12 @@ Console.WriteLine("Введите количество строк, столбц�
 int m = Convert.ToInt32(Console.ReadLine());
 int n = Convert.ToInt32(Console.ReadLine());
 int o = Convert.ToInt32(Console.ReadLine());
-if (m * n * o <= 90)
+if (m * n * o <= 90) // массив из разных 2-значных чисел, поэтому их не более 90
 {
     int[,,] a = NewArray2(m, n, o);
 }
 else Console.WriteLine("невозможно задать массива данного размера с уникальными 2-значными числами");
-bool IsInArray(int x, int y, int b, int c, int[,,] a)
+bool IsInArray(int x, int y, int b, int c, int[,,] a) // есть ли в массиве а эл-т х стоящий до текущего индекса (y,b,c)
 {
     bool flag = false;
     for (int i = 0; i <= y; i++)
@@ -42,7 +42,7 @@ bool IsInArray(int x, int y, int b, int c, int[,,] a)
         {
             for (int k = 0; k < a.GetLength(2); k++)
             {
-                if (a[i, j, k] == x)
+                if ((a[i, j, k] == x) & (i <= y) & (j <= b) & (k <= c)) // проверка равенства эл-та и индекса в пределах зоны поиска
                 {
                     flag = true;
                     break;
